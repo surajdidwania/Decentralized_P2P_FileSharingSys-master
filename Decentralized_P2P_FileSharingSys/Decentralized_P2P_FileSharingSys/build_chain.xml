@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="launch_clients" name="Chain Topology: Decentralized Peer-to-Peer File Sharing System">
+	
+	<target name="launch_clients" depends="launch_servers">
+		<start rmiregistry 5000 destdir="chainTestDir/peer0" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer0" destdir="chainTestDir/peer0" />
+		<java classname="self.PeerClientDriver">
+			<Peer0 localhost 5000 localhost 5001 path="chainTestDir/peer0"/>
+		</java>
+		
+		
+		<rmic self.PeerClient srcdir="chainTestDir/peer1" destdir="chainTestDir/peer1" />
+		<java self.PeerClientDriver Peer1 localhost 5001 localhost 5000 localhost 5002 srcdir="chainTestDir/peer1" destdir="chainTestDir/peer1" />
+		
+		
+		<rmic self.PeerClient srcdir="chainTestDir/peer2" destdir="chainTestDir/peer2" />
+		<java self.PeerClientDriver Peer2 localhost 5002 localhost 5001 localhost 5003 srcdir="chainTestDir/peer2" destdir="chainTestDir/peer2" />
+		
+		<start rmiregistry 5003 destdir="chainTestDir/peer3" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer3" destdir="chainTestDir/peer3" />
+		<java self.PeerClientDriver Peer3 localhost 5003 localhost 5002 localhost 5004 srcdir="chainTestDir/peer3" destdir="chainTestDir/peer3" />
+		
+		<start rmiregistry 5004 destdir="chainTestDir/peer4" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer4" destdir="chainTestDir/peer4" />
+		<java self.PeerClientDriver Peer4 localhost 5004 localhost 5003 localhost 5005 srcdir="chainTestDir/peer4" destdir="chainTestDir/peer4" />
+		
+		<start rmiregistry 5005 destdir="chainTestDir/peer5" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer5" destdir="chainTestDir/peer5" />
+		<java self.PeerClientDriver Peer5 localhost 5005 localhost 5004 localhost 5006 srcdir="chainTestDir/peer5" destdir="chainTestDir/peer5" />
+		
+		<start rmiregistry 5006 destdir="chainTestDir/peer6" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer6" destdir="chainTestDir/peer6" />
+		<java self.PeerClientDriver Peer6 localhost 5006 localhost 5005 localhost 5007 srcdir="chainTestDir/peer6" destdir="chainTestDir/peer6" />
+		
+		<start rmiregistry 5007 destdir="chainTestDir/peer7" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer7" destdir="chainTestDir/peer7" />
+		<java self.PeerClientDriver Peer7 localhost 5007 localhost 5006 localhost 5008 srcdir="chainTestDir/peer7" destdir="chainTestDir/peer7" />
+		
+		<start rmiregistry 5008 destdir="chainTestDir/peer8" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer8" destdir="chainTestDir/peer8" />
+		<java self.PeerClientDriver Peer8 localhost 5008 localhost 5007 localhost 5009 srcdir="chainTestDir/peer8" destdir="chainTestDir/peer8" />
+		
+		<start rmiregistry 5009 destdir="chainTestDir/peer9" />
+		<rmic self.PeerClient srcdir="chainTestDir/peer9" destdir="chainTestDir/peer9" />
+		<java self.PeerClientDriver Peer9 localhost 5009 localhost 5008 srcdir="chainTestDir/peer9" destdir="chainTestDir/peer9" />
+	</target>
+	
+	<!-- lunch all peer servers -->
+	<target name="launch_servers" depends="compile">
+		<start cmd.exe />
+		<cd ........................
+		<start rmiregistry 5000 destdir="chainTestDir/peer0" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer0" destdir="chainTestDir/peer0" />
+		<java self.PeerServerDriver localhost 5000 srcdir="chainTestDir/peer0" destdir="chainTestDir/peer0" />	
+		
+		<start rmiregistry 5001 destdir="chainTestDir/peer1" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer1" destdir="chainTestDir/peer1" />
+		<java self.PeerServerDriver localhost 5001 srcdir="chainTestDir/peer1" destdir="chainTestDir/peer1" />	
+		
+		<start rmiregistry 5002 destdir="chainTestDir/peer2" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer2" destdir="chainTestDir/peer2" />
+		<java self.PeerServerDriver localhost 5002 srcdir="chainTestDir/peer2" destdir="chainTestDir/peer2" />
+		
+		<start rmiregistry 5003 destdir="chainTestDir/peer3" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer3" destdir="chainTestDir/peer3" />
+		<java self.PeerServerDriver localhost 5003 srcdir="chainTestDir/peer3" destdir="chainTestDir/peer3" />	
+		
+		<start rmiregistry 5004 destdir="chainTestDir/peer4" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer4" destdir="chainTestDir/peer4" />
+		<java self.PeerServerDriver localhost 5004 srcdir="chainTestDir/peer4" destdir="chainTestDir/peer4" />	
+		
+		<start rmiregistry 5005 destdir="chainTestDir/peer5" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer5" destdir="chainTestDir/peer5" />
+		<java self.PeerServerDriver localhost 5005 srcdir="chainTestDir/peer5" destdir="chainTestDir/peer5" />		
+		
+		<start rmiregistry 5006 destdir="chainTestDir/peer6" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer6" destdir="chainTestDir/peer6" />
+		<java self.PeerServerDriver localhost 5006 srcdir="chainTestDir/peer6" destdir="chainTestDir/peer6" />	
+		
+		<start rmiregistry 5007 destdir="chainTestDir/peer7" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer7" destdir="chainTestDir/peer7" />
+		<java self.PeerServerDriver localhost 5007 srcdir="chainTestDir/peer7" destdir="chainTestDir/peer7" />
+		
+		<start rmiregistry 5008 destdir="chainTestDir/peer8" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer8" destdir="chainTestDir/peer8" />
+		<java self.PeerServerDriver localhost 5008 srcdir="chainTestDir/peer8" destdir="chainTestDir/peer8" />	
+		
+		<start rmiregistry 5009 destdir="chainTestDir/peer9" />
+		<rmic self.PeerServer srcdir="chainTestDir/peer9" destdir="chainTestDir/peer9" />
+		<java self.PeerServerDriver localhost 5009 srcdir="chainTestDir/peer9" destdir="chainTestDir/peer9" />		
+	</target>
+	
+	<!-- Compile code and place in appropriate directories of all peers as needed -->
+	<target name="compile">
+		<javac srcdir="./src" destdir="chainTestDir/peer0/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer1/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer2/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer3/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer4/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer5/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer6/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer7/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer8/self" />
+		<javac srcdir="./src" destdir="chainTestDir/peer9/self" />
+	</target>
+	
+</project>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="peer9" name="Chain Topology: Decentralized Peer-to-Peer File Sharing System">
+	
+	<!-- launch all peers -->
+	<target name="peer0">
+			<exec executable="cmd" dir="./chainTestDir/peer0">
+				<arg line="/K start /min rmiregistry 5000"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer0">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer0">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer1" depends="peer0">
+			<exec executable="cmd" dir="./chainTestDir/peer1">
+				<arg line="/K start /min rmiregistry 5001"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer1">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer1">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer2" depends="peer1">
+			<exec executable="cmd" dir="./chainTestDir/peer2">
+				<arg line="/K start /min rmiregistry 5002"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer2">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer2">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer3" depends="peer2">
+			<exec executable="cmd" dir="./chainTestDir/peer3">
+				<arg line="/K start /min rmiregistry 5003"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer3">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer3">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer4" depends="peer3">
+			<exec executable="cmd" dir="./chainTestDir/peer4">
+				<arg line="/K start /min rmiregistry 5004"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer4">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer4">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer5" depends="peer4">
+			<exec executable="cmd" dir="./chainTestDir/peer5">
+				<arg line="/K start /min rmiregistry 5005"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer5">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer5">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer6" depends="peer5">
+			<exec executable="cmd" dir="./chainTestDir/peer6">
+				<arg line="/K start /min rmiregistry 5006"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer6">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer6">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer7" depends="peer6">
+			<exec executable="cmd" dir="./chainTestDir/peer7">
+				<arg line="/K start /min rmiregistry 5007"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer7">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer7">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer8" depends="peer7">
+			<exec executable="cmd" dir="./chainTestDir/peer8">
+				<arg line="/K start /min rmiregistry 5008"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer8">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer8">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+	<target name="peer9" depends="peer8">
+			<exec executable="cmd" dir="./chainTestDir/peer9">
+				<arg line="/K start /min rmiregistry 5009"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer9">
+				<arg line="/k rmic peer.server.PeerServer"/>
+			</exec>
+			<exec executable="cmd" dir="./chainTestDir/peer9">	
+				<arg line="/k rmic peer.client.PeerClient"/>
+			</exec>
+	</target>
+</project>

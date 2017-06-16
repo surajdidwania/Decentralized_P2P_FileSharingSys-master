@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="peers" name="Chain Topology: Decentralized Peer-to-Peer File Sharing System">
+	
+	<!-- launch all peers -->
+	<target name="peers">
+		<echo> Starting other command prompt </echo>
+			<exec executable="cmd">
+				<arg line="start rmiregistry 5000">
+				</arg>
+			</exec>
+	</target>	
+</project>

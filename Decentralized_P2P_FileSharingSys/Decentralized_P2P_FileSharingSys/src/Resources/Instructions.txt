@@ -1,0 +1,11 @@
+All Servers are run first
+All Clients are run next
+
+Note: ip and port # of client and servers must match
+
+Launch Instruction:
+
+	start rmiregistry 5000
+	rmic peer.server.PeerServer
+	rmic peer.client.PeerClient
+	java peer.PeerDriver Peer0 localhost 5000 localhost 5001
